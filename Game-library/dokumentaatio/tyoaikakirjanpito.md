@@ -8,4 +8,5 @@
 |28.3.  | 3      |Tietokannan luontia genren osalta|
 |29.3.  | 3      |tietokannan luontia/laajentamista|
 |30.3.  | 1      |Toimintojen luontia game repoon|
-|30.3.  | 3      |Game repon testialustusta|
+|30.3.  | 4      |Game repon testialustusta, testikattavuusraportin generointi|
+
