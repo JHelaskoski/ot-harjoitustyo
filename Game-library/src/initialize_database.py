@@ -18,7 +18,7 @@ def create_tables(connection):
     # Luodaan tietokantataulut.
     cursor = connection.cursor()
     
-    #Erotellaan genret omaksi taulukokseen, jotta peleille voidaan määritellä useampi genre.
+    #Erotetaan genret omaksi, jotta peleille voidaan määritellä useampi genre.
     cursor.execute("""
         create table genres (
             id integer primary key,
@@ -27,7 +27,7 @@ def create_tables(connection):
     """)
 
     
-    #Erotellaan konsolien yläotsikot
+    #Konsolien yläotsikot
     cursor.execute("""
         create table consoles (
             id integer primary key,
@@ -35,7 +35,7 @@ def create_tables(connection):
         );
     """)
     
-    #Erotellaan konsolien ala-otsikot
+    #Konsolien ala-otsikot
     cursor.execute("""
         create table console_models (
             id integer primary key,

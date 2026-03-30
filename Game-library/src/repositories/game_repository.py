@@ -1,8 +1,8 @@
-from database_connection import get_database_connection
+from entities.game import Game
 
 class GameRepository:
-    def __init__(self):
-        self._connection = get_database_connection()
+    def __init__(self, connection):
+        self._connection = connection
         
     def add_game(self, name, console_model_id, release_year, status):
         cursor = self._connection.cursor()
@@ -17,5 +17,6 @@ class GameRepository:
         cursor.execute("""
             select * from games
         """)
-        return cursor.fetchall()
+        rows = cursor.fetchall()
+        return [Game(row["name"], row["release_year"], row["status"], row["console_model_id"]) for row in rows]
     
