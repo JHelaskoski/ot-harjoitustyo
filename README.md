@@ -1,5 +1,8 @@
-# Ohjelmistotekniikka, harjoitystyö
-Tähän repoon tulen tekemään **pelikirjasto-ohjelmiston**, jota työstän osana *Ohjelmistotekniikan* kurssia.
+# Ohjelmistotekniikka, harjoitustyö - GameLibrary
+---
+Sovellus tarjoaa käyttäjille mahdollisuuden lisätä uusia pelejä omaan pelikirjastoonsa sekä tallentaa ne tietokantaan.
 
-[Siirry laskareihin](laskarit/)
-[Työaikakirjanpito](Game-library/dokumentaatio/tyoaikakirjanpito.md)
+## Dokumentaatio
+---
+* [Työaikakirjanpito](Game-library/dokumentaatio/tyoaikakirjanpito.md)
+* [Changelog](Game-library/dokumentaatio/changelog.md)

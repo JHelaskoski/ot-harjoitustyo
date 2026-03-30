@@ -15,7 +15,7 @@ class GameService:
             if release_year < 0:
                 raise ValueError("Release year must be empty or a non-negative number.")
         
-        #Tallennetaan peli tietokantaan
+        #Tallennetaan peli
         return self.game_repository.add_game(
             name, console_model_id, release_year, status
         )
