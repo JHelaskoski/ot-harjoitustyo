@@ -1,5 +1,6 @@
 from entities.game import Game
 
+
 class GameRepository:
     def __init__(self, connection):
         self._connection = connection

@@ -1,5 +1,6 @@
 from database_connection import get_database_connection
 
+
 def drop_tables(connection):
     # Poistetaan tietokantataulut.
     cursor = connection.cursor()
@@ -10,7 +11,6 @@ def drop_tables(connection):
     cursor.execute("drop table if exists consoles;")
     cursor.execute("drop table if exists genres;")
 
-
     connection.commit()
 
 
@@ -18,7 +18,7 @@ def create_tables(connection):
     # Luodaan tietokantataulut.
     cursor = connection.cursor()
 
-    #Erotetaan genret omaksi, jotta peleille voidaan määritellä useampi genre.
+    # Erotetaan genret omaksi, jotta peleille voidaan määritellä useampi genre.
     cursor.execute("""
         create table genres (
             id integer primary key,
@@ -26,8 +26,7 @@ def create_tables(connection):
         );
     """)
 
-
-    #Konsolien yläotsikot
+    # Konsolien yläotsikot
     cursor.execute("""
         create table consoles (
             id integer primary key,
@@ -35,7 +34,7 @@ def create_tables(connection):
         );
     """)
 
-    #Konsolien ala-otsikot
+    # Konsolien ala-otsikot
     cursor.execute("""
         create table console_models (
             id integer primary key,
@@ -64,7 +63,6 @@ def create_tables(connection):
 
         );
     """)
-
 
     cursor.execute("""
         create table game_genres (

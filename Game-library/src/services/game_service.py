@@ -1,5 +1,6 @@
 from repositories.game_repository import GameRepository
 
+
 class GameService:
     def __init__(self, game_repository: GameRepository):
         self._game_repository = game_repository
@@ -13,9 +14,10 @@ class GameService:
 
         if release_year is not None:
             if release_year < 0:
-                raise ValueError("Release year must be empty or a non-negative number.")
+                raise ValueError(
+                    "Release year must be empty or a non-negative number.")
 
-        #Tallennetaan peli
+        # Tallennetaan peli
         return self._game_repository.add_game(
             name, console_model_id, release_year, status
         )

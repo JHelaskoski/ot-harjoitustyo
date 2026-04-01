@@ -1,5 +1,6 @@
 from repositories.console_repository import ConsoleRepository
 
+
 def seed_consoles():
     repo = ConsoleRepository()
 
@@ -8,6 +9,7 @@ def seed_consoles():
 
     for name in consoles:
         repo.add_console(name)
+
 
 if __name__ == "__main__":
     seed_consoles()

@@ -1,13 +1,14 @@
 from repositories.console_repository import ConsoleRepository
 from repositories.console_model_repository import ConsoleModelRepository
 
+
 def seed_console_models():
     console_repo = ConsoleRepository()
     model_repo = ConsoleModelRepository()
 
     consoles = console_repo.get_all_consoles()
 
-    #Sanakirja konsoliperheiden ja niiden alatyyppien osalta.
+    # Sanakirja konsoliperheiden ja niiden alatyyppien osalta.
     console_ids = {console["name"]: console["id"] for console in consoles}
 
     playstation_models = [

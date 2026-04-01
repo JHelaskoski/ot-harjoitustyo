@@ -1,5 +1,6 @@
 from database_connection import get_database_connection
 
+
 class ConsoleRepository:
     def __init__(self):
         self._connection = get_database_connection()
