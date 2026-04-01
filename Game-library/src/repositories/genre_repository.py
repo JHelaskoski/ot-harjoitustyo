@@ -1,9 +1,6 @@
-from database_connection import get_database_connection
-
-
 class GenreRepository:
-    def __init__(self):
-        self._connection = get_database_connection()
+    def __init__(self, connection):
+        self._connection = connection
 
     def add_genre(self, name):
         cursor = self._connection.cursor()

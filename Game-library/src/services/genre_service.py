@@ -1,3 +1,5 @@
+from repositories.genre_repository import GenreRepository
+
 class GenreService:
     def __init__(self, genre_repository: GenreRepository):
         self._genre_repository = genre_repository
