@@ -8,10 +8,10 @@ class ConsoleModelRepository:
         cursor = self._connection.cursor()
         cursor.execute(
             "insert into console_models (console_id, name) values (?, ?)",
-            (console_id, name) 
+            (console_id, name)
         )
         self._connection.commit()
-        
+
     def get_console_models_by_console_id(self, console_id):
         # Hakee kaikki konsolimallit tietyn konsolin id:n perusteella.
         cursor = self._connection.cursor()
@@ -20,7 +20,7 @@ class ConsoleModelRepository:
             (console_id,)
         )
         return cursor.fetchall()
-    
+
     def get_all_console_models(self):
         # Hakee kaikki konsolimallit.
         cursor = self._connection.cursor()

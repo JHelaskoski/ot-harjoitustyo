@@ -17,7 +17,7 @@ def drop_tables(connection):
 def create_tables(connection):
     # Luodaan tietokantataulut.
     cursor = connection.cursor()
-    
+
     #Erotetaan genret omaksi, jotta peleille voidaan määritellä useampi genre.
     cursor.execute("""
         create table genres (
@@ -26,7 +26,7 @@ def create_tables(connection):
         );
     """)
 
-    
+
     #Konsolien yläotsikot
     cursor.execute("""
         create table consoles (
@@ -34,7 +34,7 @@ def create_tables(connection):
             name text not null
         );
     """)
-    
+
     #Konsolien ala-otsikot
     cursor.execute("""
         create table console_models (
@@ -45,7 +45,8 @@ def create_tables(connection):
         );
     """)
 
-    #Luodaan itse pelitietokanta, laitetaan viittaukset konsoliin ja genreihin. Arvostelut pelaaja lisää, kun peli merkataan pelatuksi.
+    # Luodaan itse pelitietokanta, laitetaan viittaukset konsoliin ja genreihin.
+    # Arvostelut pelaaja lisää, kun peli merkataan pelatuksi.
     cursor.execute("""
         create table games (
             id integer primary key,
@@ -53,14 +54,14 @@ def create_tables(connection):
             console_model_id integer,
             release_year integer,
             status text not null,
-            
+
             story_rating integer,
             graphics_rating integer,
             gameplay_rating integer,
             overall_rating integer,
-            
+
             foreign key (console_model_id) references console_models(id)
-            
+
         );
     """)
 
