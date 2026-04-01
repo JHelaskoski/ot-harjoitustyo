@@ -14,6 +14,7 @@ def coverage_report(ctx):
     ctx.run("coverage html", pty=True)
 
 #Windows käyttöön
+@task
 def start_w(ctx):
     ctx.run("python3 src/index.py")
 
