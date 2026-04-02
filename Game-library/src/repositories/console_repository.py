@@ -1,9 +1,6 @@
-from database_connection import get_database_connection
-
-
 class ConsoleRepository:
-    def __init__(self):
-        self._connection = get_database_connection()
+    def __init__(self, connection):
+        self._connection = connection
 
     def add_console(self, name):
         # Lisätään uusi konsoliperhe
@@ -18,3 +15,4 @@ class ConsoleRepository:
         cursor = self._connection.cursor()
         cursor.execute("select id, name from consoles")
         return cursor.fetchall()
+

@@ -1,9 +1,6 @@
-from database_connection import get_database_connection
-
-
 class ConsoleModelRepository:
-    def __init__(self):
-        self._connection = get_database_connection()
+    def __init__(self, connection):
+        self._connection = connection
 
     def add_console_model(self, console_id, name):
         cursor = self._connection.cursor()
