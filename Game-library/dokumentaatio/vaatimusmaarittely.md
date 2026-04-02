@@ -17,24 +17,24 @@ Sovellus koostuu viidestä eri näkymästä: etusivu, toivelista, pelatut pelit,
 ---
 
 ### Alkutila
- * Käyttäjä voi lisätä pelejä manuaalisesti kolmeen eri kategoriaan: toivelistaan, meneillään oleviin peleihin tai pelattuihin peleihin.
- * Käyttäjä voi poistaa lisäämänsä pelin tarvittaessa.
- * Käyttäjä voi liittää peliin pienen kansikuvan tai avatarin, jotta pelikirjasto on visuaalisesti selkeämpi ja peleistä on helpompi saada nopeasti kiinni.
+ * Käyttäjä voi lisätä pelejä manuaalisesti kolmeen eri kategoriaan: toivelistaan, meneillään oleviin peleihin tai pelattuihin peleihin. [x]
+ * Käyttäjä voi poistaa lisäämänsä pelin tarvittaessa. [x]
+ * Käyttäjä voi liittää peliin pienen kansikuvan tai avatarin, jotta pelikirjasto on visuaalisesti selkeämpi ja peleistä on helpompi saada nopeasti kiinni. []
 
 ### Kirjaston ylläpitäminen
- * Käyttäjä voi siirtää pelin kategoriasta toiseen, esimerkiksi meneillään olevista peleistä pelattuihin.
+ * Käyttäjä voi siirtää pelin kategoriasta toiseen, esimerkiksi meneillään olevista peleistä pelattuihin. [x]
 
-* Kun peli siirretään pelattuihin, käyttäjä voi antaa pelille arvostelun eri osa‑alueista mm. visuaalisuus, tarina, pelattavuus ja yleisarvosana.
+* Kun peli siirretään pelattuihin, käyttäjä voi antaa pelille arvostelun eri osa‑alueista mm. visuaalisuus, tarina, pelattavuus ja yleisarvosana. []
 
-* Käyttäjä voi hakea kirjastoonsa lisäämiä pelejä nimen perusteella.
+* Käyttäjä voi hakea kirjastoonsa lisäämiä pelejä nimen perusteella. [x]
 
-* Hakusivulla näytetään myös käyttäjän antamien arvioiden perusteella top 3 ‑peliä.
+* Hakusivulla näytetään myös käyttäjän antamien arvioiden perusteella top 3 ‑peliä. []
 
-* Sovellus tarjoaa valmiin listan peligenreistä sekä alustoista (konsolit/PC), joista käyttäjä voi valita peliä lisätessään.
+* Sovellus tarjoaa valmiin listan peligenreistä sekä alustoista (konsolit/PC), joista käyttäjä voi valita peliä lisätessään. [x]
 
-* Pelejä voi hakea ja suodattaa myös genren ja alustan perusteella.
+* Pelejä voi hakea ja suodattaa myös genren ja alustan perusteella. [x]
 
-* Top‑3‑lista päivittyy automaattisesti aina, kun käyttäjä muuttaa jonkin pelin arvosanaa.
+* Top‑3‑lista päivittyy automaattisesti aina, kun käyttäjä muuttaa jonkin pelin arvosanaa. []
 
 ## Jatkokehitysideoita
 ---
