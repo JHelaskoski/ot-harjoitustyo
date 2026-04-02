@@ -19,26 +19,33 @@ class GameService:
         if release_year is not None and release_year < 0:
             raise ValueError("Release year must be empty or a positive number.")
 
-        return self._game_repo.add_game(name, console_model_id, release_year)
+        return self._game_repo.add_game(name, console_model_id, release_year, "wishlist")
 
 
     def get_all_games(self):
         return self._game_repo.get_all_games()
 
     def get_game_by_id(self, game_id: int):
-        return self._game_repo.get_by_id(game_id)
+        return self._game_repo.get_game_by_id(game_id)
 
-    def get_games_by_status(self, status: str):
+    def get_game_by_status(self, status: str):
         if status not in self.Valid_statuses:
             raise ValueError("Invalid status.")
-        return self._game_repo.get_by_status(status)
+        return self._game_repo.get_game_by_status(status)
 
     def change_status(self, game_id: int, new_status: str):
         if new_status not in self.Valid_statuses:
             raise ValueError("Invalid status.")
 
-        game = self._game_repo.get_by_id(game_id)
+        game = self._game_repo.get_game_by_id(game_id)
         if not game:
             raise ValueError("Game not found.")
 
         return self._game_repo.update_status(game_id, new_status)
+
+    def delete_game(self, game_id: int):
+        game = self._game_repo.get_game_by_id(game_id)
+        if not game:
+            raise ValueError("Game not found.")
+
+        return self._game_repo.delete_game(game_id)
