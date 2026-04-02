@@ -12,4 +12,4 @@
 |30.3.  | 2      |Sovelluslogiikkaa game_servicelle, changelog luonti ja täydentäminen|
 |1.4.   | 5      |Genre -ja gameservicen täydentämistä ja testien luontia|
 |2.4.   | 2      |Luotu console ja console-model servicet|
-|2.4.    | 2      |Täydennetty toiminnallisuuksia pelin poistamisen ja genren valitsemisen osalta|
+|2.4.   | 2      |Täydennetty toiminnallisuuksia pelin poistamisen ja genren valitsemisen osalta|

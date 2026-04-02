@@ -15,4 +15,3 @@ class ConsoleRepository:
         cursor = self._connection.cursor()
         cursor.execute("select id, name from consoles")
         return cursor.fetchall()
-

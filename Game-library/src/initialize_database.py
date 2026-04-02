@@ -64,6 +64,7 @@ def create_tables(connection):
         );
     """)
 
+    # Luodaan taulu pelien ja genrejen välille, peliin voi valita useamman genren
     cursor.execute("""
         create table game_genres (
             game_id integer,
