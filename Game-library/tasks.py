@@ -10,6 +10,7 @@ def test(ctx):
 
 @task
 def coverage_report(ctx):
+    ctx.run("coverage erase", pty=True)
     ctx.run("coverage run --branch -m pytest src", pty=True)
     ctx.run("coverage html", pty=True)
 
@@ -24,6 +25,7 @@ def test_w(ctx):
 
 @task
 def coverage_report_w(ctx):
+    ctx.run("coverage erase")
     ctx.run("coverage run --branch -m pytest src")
     ctx.run("coverage html")
 

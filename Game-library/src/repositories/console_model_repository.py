@@ -25,3 +25,21 @@ class ConsoleModelRepository:
         cursor.execute("select * from console_models")
         rows = cursor.fetchall()
         return rows
+
+    def get_console_model_by_id(self, model_id):
+        # Hakee konsolimallin id:n perusteella.
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "select * from console_models where id = ?",
+            (model_id,)
+        )
+        return cursor.fetchone()
+
+    def get_console_model_by_name(self, name):
+        # Hakee konsolimallin nimen perusteella.
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "select * from console_models where name = ?",
+            (name,)
+        )
+        return cursor.fetchone()

@@ -86,19 +86,19 @@ class GameRepository:
     def get_genres_for_game(self, game_id):
         cursor = self._connection.cursor()
         cursor.execute("""
-                select genres.id, genres.name from genres
-                join game_genres on genres.id = game_genres.genre_id
-                where game_genres.game_id = ?
-            """, (game_id,))
-        return cursor.fetchall()
+            SELECT genre_id FROM game_genres WHERE game_id = ?
+        """, (game_id,))
+        rows = cursor.fetchall()
+        return [row["genre_id"] for row in rows]
 
     def get_games_by_genre(self, genre_id):
         cursor = self._connection.cursor()
         cursor.execute("""
-                select games. * from games
-                join game_genres on games.id = game_genres.game_id
-                where game_genres.genre_id = ?)
-            """, (genre_id,))
+            SELECT g.*
+            FROM games g
+            JOIN game_genres gg ON g.id = gg.game_id
+            WHERE gg.genre_id = ?
+        """, (genre_id,))
         rows = cursor.fetchall()
         return [
             Game(

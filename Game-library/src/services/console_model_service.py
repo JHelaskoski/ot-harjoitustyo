@@ -2,13 +2,13 @@ from repositories.console_model_repository import ConsoleModelRepository
 
 class ConsoleModelService:
     def __init__(self, console_model_repository: ConsoleModelRepository):
-        self._console_model_repository = console_model_repository
+        self._repo = console_model_repository
 
-    def add_console_model(self, console_id, name):
-        self._console_model_repository.add_console_model(console_id, name)
+    def fetch_all_models(self):
+        return self._repo.get_all_models()
 
-    def get_console_models_by_console_id(self, console_id):
-        return self._console_model_repository.get_console_models_by_console_id(console_id)
+    def get_model_by_id(self, model_id):
+        return self._repo.get_model_by_id(model_id)
 
-    def get_all_console_models(self):
-        return self._console_model_repository.get_all_console_models()
+    def get_model_by_name(self, name):
+        return self._repo.get_model_by_name(name)
