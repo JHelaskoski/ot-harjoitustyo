@@ -1,5 +1,7 @@
 .pytest_cache
-__pycache__
+__pycache__/
+*.pyc
 .coverage
 htmlcov
 .pytest_cache/
+game_library.db
