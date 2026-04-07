@@ -14,6 +14,10 @@ def coverage_report(ctx):
     ctx.run("coverage run --branch -m pytest src", pty=True)
     ctx.run("coverage html", pty=True)
 
+@task
+def lint(ctx):
+    ctx.run("pylint src", pty=True)
+
 #Windows käyttöön
 @task
 def start_w(ctx):
@@ -32,3 +36,7 @@ def coverage_report_w(ctx):
 @task
 def format_w(ctx):
     ctx.run("autopep8 --in-place --recursive src")
+
+@task
+def lint_w(ctx):
+    ctx.run("pylint src")

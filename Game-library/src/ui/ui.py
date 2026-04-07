@@ -1,8 +1,9 @@
 from ui.main_menu_view import MainMenuView
 from ui.played_view import PlayedView
-from ui.playing_view import PlayingViewv
+from ui.playing_view import PlayingView
 from ui.search_view import SearchView
 from ui.wish_to_play_view import WishToPlayView
+from ui.add_game_view import AddGameView
 
 class UI:
     def __init__(self, root):
@@ -10,7 +11,7 @@ class UI:
         self._current_view = None
 
     def start(self):
-        self._show_main_menu_view()
+        self._show_main_menu()
 
     def _hide_current_view(self):
         #Edellinen näkymä tulee aina piilottaa, ennen kuin uusi sivu näytetään
@@ -28,8 +29,8 @@ class UI:
             self._show_wish_to_play,
             self._show_playing,
             self._show_played,
-            self._show_search
-
+            self._show_search,
+            self._show_add_game_view
         )
 
         self._current_view.pack()
@@ -42,7 +43,7 @@ class UI:
     def _show_playing(self):
         self._hide_current_view()
 
-        self._current_view = PlayingViewv(self._root, self._show_main_menu)
+        self._current_view = PlayingView(self._root, self._show_main_menu)
         self._current_view.pack()
 
     def _show_played(self):
@@ -53,4 +54,9 @@ class UI:
     def _show_search(self):
         self._hide_current_view()
         self._current_view = SearchView(self._root, self._show_main_menu)
+        self._current_view.pack()
+
+    def _show_add_game_view(self):
+        self._hide_current_view()
+        self._current_view = AddGameView(self._root, self._show_main_menu)
         self._current_view.pack()

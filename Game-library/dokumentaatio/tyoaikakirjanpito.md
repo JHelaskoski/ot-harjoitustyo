@@ -15,4 +15,7 @@
 |       | 2      |Täydennetty toiminnallisuuksia pelin poistamisen ja genren valitsemisen osalta|
 |3.4.   | 3      |Luotu testit console ja console-model repoille ja servicelle|
 |4.4.   | 1      |Täydennetty testit ja korjattu repoja ja servicet|
-|YHT:   | 32     |
+|6.5.   | 2      |Luotu hallinta ui ja index.py|
+|       | 2      |Täydennetty ui etusivun osalta|
+|       | 1      |Korjatty python versiota, tkinterin toimivuuden johdosta|
+|YHT:   | 37     |
