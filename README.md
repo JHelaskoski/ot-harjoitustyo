@@ -4,6 +4,9 @@ Sovellus tarjoaa käyttäjille mahdollisuuden lisätä uusia pelejä omaan pelik
 
 ## Dokumentaatio
 ---
-* [Vaatimusmäärittely](Game-library/dokumentaatio/vaatimusmaarittely.md)
-* [Työaikakirjanpito](Game-library/dokumentaatio/tyoaikakirjanpito.md)
+* [Arkkitehtuuri](Game-library/dokumentaatio/arkkitehtuuri.md)
 * [Changelog](Game-library/dokumentaatio/changelog.md)
+* [Testaus](Game-library/dokumentaatio/testaus.md)
+* [Työaikakirjanpito](Game-library/dokumentaatio/tyoaikakirjanpito.md)
+* [Vaatimusmäärittely](Game-library/dokumentaatio/vaatimusmaarittely.md)
+

@@ -18,4 +18,5 @@
 |6.5.   | 2      |Luotu hallinta ui ja index.py|
 |       | 2      |Täydennetty ui etusivun osalta|
 |       | 1      |Korjatty python versiota, tkinterin toimivuuden johdosta|
-|YHT:   | 37     |
+|7.4.   | 3      |Dokumentaatio, kaavioiden luominen, arkkitehtuuri, changelog, testaus|
+|YHT:   | 40     |
