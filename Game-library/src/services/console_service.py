@@ -1,4 +1,5 @@
 from repositories.console_repository import ConsoleRepository
+from database_connection import get_database_connection
 
 class ConsoleService:
     def __init__(self, console_repo):
@@ -12,3 +13,6 @@ class ConsoleService:
 
     def get_console_by_name(self, name):
         return self._repo.get_console_by_name(name)
+
+console_repository = ConsoleRepository(get_database_connection())
+console_service = ConsoleService(console_repository)

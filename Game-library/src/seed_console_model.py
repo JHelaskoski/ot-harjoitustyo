@@ -1,10 +1,11 @@
 from repositories.console_repository import ConsoleRepository
 from repositories.console_model_repository import ConsoleModelRepository
+from database_connection import get_database_connection
 
 
 def seed_console_models():
-    console_repo = ConsoleRepository()
-    model_repo = ConsoleModelRepository()
+    console_repo = ConsoleRepository(get_database_connection())
+    model_repo = ConsoleModelRepository(get_database_connection())
 
     consoles = console_repo.get_all_consoles()
 

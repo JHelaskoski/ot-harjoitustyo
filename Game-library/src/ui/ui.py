@@ -49,7 +49,7 @@ class UI:
 
     def _show_played(self):
         self._hide_current_view()
-        self._current_view = PlayedView(self._root, self._show_main_menu, self._show_rate_game)
+        self._current_view = PlayedView(self._root, self._show_main_menu, self.show_rate_game)
         self._current_view.pack()
 
     def _show_search(self):
@@ -59,10 +59,14 @@ class UI:
 
     def _show_add_game_view(self):
         self._hide_current_view()
-        self._current_view = AddGameView(self._root, self._show_main_menu)
+        self._current_view = AddGameView(
+            self._root,
+            self._show_main_menu,
+            self.show_rate_game
+        )
         self._current_view.pack()
 
-    def _show_rate_game(self, game_id):
+    def show_rate_game(self, game_id):
         self._hide_current_view()
         self._current_view = RateGameView(self._root, game_id, self._show_played)
         self._current_view.pack()
