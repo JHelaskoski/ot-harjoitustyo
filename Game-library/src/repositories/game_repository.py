@@ -21,6 +21,7 @@ class GameRepository:
             """, (game_id, genre_id))
 
         self._connection.commit()
+        return game_id
 
     def _row_to_game(self, row):
         return Game(
@@ -90,3 +91,23 @@ class GameRepository:
             where id = ?
         """, (story, graphics, gameplay, overall, game_id))
         self._connection.commit()
+
+    def search_by_name(self, query):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "SELECT * FROM games WHERE name LIKE ?",
+            (f"%{query}%",)
+        )
+        rows = cursor.fetchall()
+        return [dict(row) for row in rows]
+
+    def get_games_by_console(self, console_id):
+        cursor = self._connection.cursor()
+        cursor.execute("""
+            SELECT * FROM games
+            WHERE console_model_id IN (
+                SELECT id FROM console_models WHERE console_id = ?
+            )
+        """, (console_id,))
+        rows = cursor.fetchall()
+        return [dict(row) for row in rows]

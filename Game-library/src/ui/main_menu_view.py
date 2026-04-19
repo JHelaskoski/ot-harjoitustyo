@@ -15,4 +15,3 @@ class MainMenuView(Frame):
         Button(self, text="Game Over", command=open_played).pack()
         Button(self, text="Explore", command=open_search).pack()
         Button(self, text="Add Game", command=open_add_game).pack()
-

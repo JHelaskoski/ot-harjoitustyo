@@ -23,7 +23,6 @@ class PlayedView(Frame):
 
             Label(frame, text=f"{game.name} ({game.release_year})").pack()
 
-            # Arvosanat
             if game.overall_rating is not None:
                 Label(frame, text=f"Story: {game.story_rating}").pack()
                 Label(frame, text=f"Graphics: {game.graphics_rating}").pack()

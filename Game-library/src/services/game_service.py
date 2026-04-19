@@ -11,26 +11,36 @@ class GameService:
         self._console_model_repo = console_model_repo
         self._genre_repo = genre_repo
 
-    def add_game(self, name: str, console_model_id: int, release_year: int, genre_ids: list):
+    def add_game(self, name, console_model_id, release_year, status, genre_ids):
         if not name:
             raise ValueError("Name cannot be empty.")
 
         if console_model_id <= 0:
             raise ValueError("Console model ID must be a positive number.")
 
-        if release_year is not None and release_year < 0:
-            raise ValueError("Release year must be empty or a positive number.")
+        if release_year is not None:
+            year_str = str(release_year)
+
+            if len(year_str) != 4:
+                raise ValueError("Release year must be a 4-digit year.")
+
+            if release_year < 1900 or release_year > 2100:
+                raise ValueError("Release year must be between 1900 and 2100.")
 
         for genre_id in genre_ids:
             if not self._genre_repo.get_genre_by_id(genre_id):
                 raise ValueError(f"Genre ID {genre_id} is not valid.")
 
+        if status not in self.Valid_statuses:
+            raise ValueError("Invalid status.")
+
         return self._game_repo.add_game(
             name,
             console_model_id,
             release_year,
-            "wishlist",
-            genre_ids)
+            status,
+            genre_ids
+        )
 
     def get_all_games(self):
         return self._game_repo.get_all_games()
@@ -80,6 +90,21 @@ class GameService:
         return self._game_repo.update_ratings(
             game_id, story, graphics, gameplay, overall
     )
+
+    def search_games(self, query=None, genre_id=None, console_id=None):
+        # haku nimen perusteella
+        if query:
+            return self._game_repo.search_by_name(query)
+
+        # haku genren perusteella
+        if genre_id:
+            return self._game_repo.get_games_by_genre(genre_id)
+
+        # haku konsolin perusteella
+        if console_id:
+            return self._game_repo.get_games_by_console(console_id)
+
+        return []
 
 _connection = get_database_connection()
 _game_repo = GameRepository(_connection)
