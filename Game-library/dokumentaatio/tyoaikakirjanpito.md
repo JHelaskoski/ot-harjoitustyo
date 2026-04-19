@@ -19,4 +19,6 @@
 |       | 2      |Täydennetty ui etusivun osalta|
 |       | 1      |Korjatty python versiota, tkinterin toimivuuden johdosta|
 |7.4.   | 3      |Dokumentaatio, kaavioiden luominen, arkkitehtuuri, changelog, testaus|
-|YHT:   | 40     |
+|13.4   | 4      |Pelien arvostelu mahdollisuus lisätty, päivitys game, entities, repo ja servicee tämän myötä|
+|       | 2      |Täydennetty pelatut pelit näykymää|
+|YHT:   | 44     |

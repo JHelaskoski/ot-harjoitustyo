@@ -19,7 +19,6 @@ Sovellus koostuu viidestä eri näkymästä: etusivu, toivelista, pelatut pelit,
 ### Alkutila
  * Käyttäjä voi lisätä pelejä manuaalisesti kolmeen eri kategoriaan: toivelistaan, meneillään oleviin peleihin tai pelattuihin peleihin. [x]
  * Käyttäjä voi poistaa lisäämänsä pelin tarvittaessa. [x]
- * Käyttäjä voi liittää peliin pienen kansikuvan tai avatarin, jotta pelikirjasto on visuaalisesti selkeämpi ja peleistä on helpompi saada nopeasti kiinni. []
 
 ### Kirjaston ylläpitäminen
  * Käyttäjä voi siirtää pelin kategoriasta toiseen, esimerkiksi meneillään olevista peleistä pelattuihin. [x]
@@ -51,3 +50,5 @@ Perusversion jälkeen järjestelmää voidaan kehittää esimerkiksi seuraavilla
 * Mahdollisuus lisätä peleihin lisätietoja, kuten julkaisuvuosi, kehittäjä tai pelin kansikuva.
 
 * Sovellukseen voi myös lisätä keskitetyn pelitietokannan, jota kaikki käyttäjät hyödyntävät. Tällöin pelit valittaisiin valmiista listasta, mikä vähentäisi kirjoitusvirheitä ja varmistaisi, että sama peli viittaa aina samaan tietueeseen. Yhteinen tietokanta estäisi myös epäsiistin tai sopimattoman sisällön lisäämisen ja mahdollistaisi laajemmat suositukset ja vertailut käyttäjien välillä.
+
+ * Käyttäjä voi liittää peliin pienen kansikuvan tai avatarin, jotta pelikirjasto on visuaalisesti selkeämpi ja peleistä on helpompi saada nopeasti kiinni.

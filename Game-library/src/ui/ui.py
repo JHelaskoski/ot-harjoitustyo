@@ -4,6 +4,7 @@ from ui.playing_view import PlayingView
 from ui.search_view import SearchView
 from ui.wish_to_play_view import WishToPlayView
 from ui.add_game_view import AddGameView
+from ui.rate_game_view import RateGameView
 
 class UI:
     def __init__(self, root):
@@ -48,7 +49,7 @@ class UI:
 
     def _show_played(self):
         self._hide_current_view()
-        self._current_view = PlayedView(self._root, self._show_main_menu)
+        self._current_view = PlayedView(self._root, self._show_main_menu, self._show_rate_game)
         self._current_view.pack()
 
     def _show_search(self):
@@ -59,4 +60,9 @@ class UI:
     def _show_add_game_view(self):
         self._hide_current_view()
         self._current_view = AddGameView(self._root, self._show_main_menu)
+        self._current_view.pack()
+
+    def _show_rate_game(self, game_id):
+        self._hide_current_view()
+        self._current_view = RateGameView(self._root, game_id, self._show_played)
         self._current_view.pack()

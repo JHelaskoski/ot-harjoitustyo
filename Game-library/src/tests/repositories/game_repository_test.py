@@ -21,7 +21,12 @@ class TestGameRepository(unittest.TestCase):
                 name text,
                 console_model_id integer,
                 release_year integer,
-                status text
+                status text,
+                story_rating integer,
+                graphics_rating integer,
+                gameplay_rating integer,
+                overall_rating integer
+
             )
         """)
 

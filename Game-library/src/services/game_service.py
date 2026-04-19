@@ -1,6 +1,7 @@
 from repositories.game_repository import GameRepository
 from repositories.console_model_repository import ConsoleModelRepository
 from repositories.genre_repository import GenreRepository
+from database_connection import get_database_connection
 
 class GameService:
     Valid_statuses = ["wishlist", "playing", "completed"]
@@ -66,3 +67,23 @@ class GameService:
         if not self._genre_repo.get_genre_by_id(genre_id):
             raise ValueError(" Invalid genre ID.")
         return self._game_repo.get_games_by_genre(genre_id)
+
+    def add_ratings(self, game_id: int, story: int, graphics: int, gameplay: int, overall: int):
+        game = self._game_repo.get_game_by_id(game_id)
+        if not game:
+            raise ValueError("Game not found.")
+
+        for value in [story, graphics, gameplay, overall]:
+            if not isinstance(value, int) or value < 0 or value > 10:
+                raise ValueError("Ratings must be integers between 0 and 10.")
+
+        return self._game_repo.update_ratings(
+            game_id, story, graphics, gameplay, overall
+    )
+
+_connection = get_database_connection()
+_game_repo = GameRepository(_connection)
+_console_model_repo = ConsoleModelRepository(_connection)
+_genre_repo = GenreRepository(_connection)
+
+game_service = GameService(_game_repo, _console_model_repo, _genre_repo)
