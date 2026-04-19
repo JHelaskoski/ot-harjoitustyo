@@ -5,6 +5,11 @@ def start(ctx):
     ctx.run("python3 src/index.py", pty=True)
 
 @task
+def build(ctx):
+    ctx.run("python3 src/build.py", pty=True)
+
+
+@task
 def test(ctx):
     ctx.run("pytest src", pty=True)
 
@@ -40,3 +45,7 @@ def format_w(ctx):
 @task
 def lint_w(ctx):
     ctx.run("pylint src")
+
+@task
+def build_w(ctx):
+    ctx.run("python3 src/build.py")
