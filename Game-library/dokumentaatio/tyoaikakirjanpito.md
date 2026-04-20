@@ -26,5 +26,5 @@
 |       | 2      |Korjauksia kokonaisuuteen, konsolien lisääminen ui:ssa|
 |       | 2      |Genren valitseminen, pelin poisto ja päivitys|
 |20.4.  | 1      |Statuksen vaihtaminen
-|       | 2      |Testit, dokumentaation päivitys|
+|       | 2      |Testit, dokumentaation päivitys, tietokannanalustus|
 |YHT:   | 51     |
