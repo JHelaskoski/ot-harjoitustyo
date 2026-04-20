@@ -1,4 +1,4 @@
-from tkinter import Frame, Label, Button
+from tkinter import Frame, Label, Button, messagebox
 from services.game_service import game_service
 
 class PlayedView(Frame):
@@ -10,24 +10,52 @@ class PlayedView(Frame):
 
         Label(self, text="Played Games", font=("Arial", 18)).pack(pady=10)
 
-        self.refresh_list()
+        self.game_list_frame = Frame(self)
+        self.game_list_frame.pack()
+
+        self.draw_game_list()
 
         Button(self, text="Back", command=self.open_main_menu).pack(pady=10)
 
-    def refresh_list(self):
+    def draw_game_list(self):
+        for widget in self.game_list_frame.winfo_children():
+            widget.destroy()
+
         games = game_service.get_game_by_status("completed")
 
         for game in games:
-            frame = Frame(self)
-            frame.pack(pady=5)
+            row = Frame(self.game_list_frame)
+            row.pack(pady=5)
 
-            Label(frame, text=f"{game.name} ({game.release_year})").pack()
+            Label(row, text=f"{game.name} ({game.release_year})").pack()
 
             if game.overall_rating is not None:
-                Label(frame, text=f"Story: {game.story_rating}").pack()
-                Label(frame, text=f"Graphics: {game.graphics_rating}").pack()
-                Label(frame, text=f"Gameplay: {game.gameplay_rating}").pack()
-                Label(frame, text=f"Overall: {game.overall_rating}").pack()
+                Label(row, text=f"Story: {game.story_rating}").pack()
+                Label(row, text=f"Graphics: {game.graphics_rating}").pack()
+                Label(row, text=f"Gameplay: {game.gameplay_rating}").pack()
+                Label(row, text=f"Overall: {game.overall_rating}").pack()
             else:
-                Label(frame, text="Not rated yet").pack()
-                Button(frame, text="Rate", command=lambda g=game: self.open_rate_game(g.id)).pack()
+                Label(row, text="Not rated yet").pack()
+                Button(
+                    row,
+                    text="Rate",
+                    command=lambda game_id=game.id: self.open_rate_game(game_id)
+                ).pack()
+
+            Button(
+                row,
+                text="Delete",
+                command=lambda game_id=game.id: self.delete_game(game_id)
+            ).pack(pady=5)
+
+    def delete_game(self, game_id):
+        confirm = messagebox.askyesno(
+            "Delete Game",
+            "Are you sure you want to delete this game?"
+        )
+
+        if not confirm:
+            return
+
+        game_service.delete_game(game_id)
+        self.draw_game_list()
