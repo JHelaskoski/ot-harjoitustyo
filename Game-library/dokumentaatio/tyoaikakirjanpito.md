@@ -25,6 +25,7 @@
 |       | 3      |Pelin lisäys ui:ssa, ui täydentämistä jatkettu|
 |       | 2      |Korjauksia kokonaisuuteen, konsolien lisääminen ui:ssa|
 |       | 2      |Genren valitseminen, pelin poisto ja päivitys|
-|20.4.  | 1      |Statuksen vaihtaminen
-|       | 2      |Testit, dokumentaation päivitys, tietokannanalustus|
-|YHT:   | 51     |
+|20.4.  | 1      |Statuksen vaihtaminen|
+|       | 2      |Testit, tietokannanalustus|
+|       | 2      |README, dokumentaatioiden päivittämistä, käyttöohje|
+|YHT:   | 53     |
