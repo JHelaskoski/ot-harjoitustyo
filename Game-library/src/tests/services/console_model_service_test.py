@@ -9,16 +9,16 @@ class FakeConsoleModelRepository:
             {"id": 3, "name": "Nintendo Switch"}
         ]
 
-    def get_all_models(self):
+    def get_all_console_models(self):
         return list(self.models)
 
-    def get_model_by_id(self, model_id):
+    def get_console_model_by_id(self, model_id):
         for model in self.models:
             if model["id"] == model_id:
                 return model
         return None
 
-    def get_model_by_name(self, name):
+    def get_console_model_by_name(self, name):
         for model in self.models:
             if model["name"].lower() == name.lower():
                 return model

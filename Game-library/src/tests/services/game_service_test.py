@@ -78,7 +78,7 @@ class TestGameService(unittest.TestCase):
         self.service = GameService(self.game_repo, self.console_model_repo, self.genre_repo)
 
     def test_add_game_correctly(self):
-        game = self.service.add_game("Testi", 1, 2026, [1, 2])
+        game = self.service.add_game("Testi", 1, 2026, "wishlist", [1, 2])
 
         self.assertEqual(game["name"], "Testi")
         self.assertEqual(game["console_model_id"], 1)
@@ -88,35 +88,35 @@ class TestGameService(unittest.TestCase):
 
     def test_add_game_empty_name_raises(self):
         with self.assertRaises(ValueError):
-            self.service.add_game("", 1, 2026, [1, 2])
+            self.service.add_game("", 1, 2026, "wishlist", [1, 2])
 
     def test_add_game_negative_console_model_id(self):
         with self.assertRaises(ValueError):
-            self.service.add_game("Testi", -1, 2026, [1, 2])
+            self.service.add_game("Testi", -1, 2026, "wishlist", [1, 2])
 
     def test_add_game_negative_release_year(self):
         with self.assertRaises(ValueError):
-            self.service.add_game("Testi", 1, -2026, [1, 2])
+            self.service.add_game("Testi", 1, -2026, "wishlist", [1, 2])
 
     def test_add_game_invalid_genre_id(self):
         with self.assertRaises(ValueError):
-            self.service.add_game("Testi", 1, 2026, [999])
+            self.service.add_game("Testi", 1, 2026, "wishlist", [999])
 
     def test_get_all_games(self):
-        self.service.add_game("Testi1", 1, 2026, [1, 2])
-        self.service.add_game("Testi2", 2, 2025, [1, 2])
+        self.service.add_game("Testi1", 1, 2026, "wishlist", [1, 2])
+        self.service.add_game("Testi2", 2, 2025, "wishlist", [1, 2])
 
         games = self.service.get_all_games()
         self.assertEqual(len(games), 2)
 
     def test_get_game_by_id(self):
-        game = self.service.add_game("Testi", 1, 2026, [1, 2])
+        game = self.service.add_game("Testi", 1, 2026, "wishlist", [1, 2])
         asked_game = self.service.get_game_by_id(game["id"])
         self.assertEqual(asked_game["name"], "Testi")
 
     def test_get_game_by_status(self):
-        self.service.add_game("Testi1", 1, 2026, [1, 2])
-        self.service.add_game("Testi2", 2, 2025, [1, 2])
+        self.service.add_game("Testi1", 1, 2026, "wishlist", [1, 2])
+        self.service.add_game("Testi2", 2, 2025, "wishlist", [1, 2])
         self.service.change_status(1, "playing")
 
         playing_games = self.service.get_game_by_status("playing")
@@ -134,12 +134,12 @@ class TestGameService(unittest.TestCase):
             self.service.change_status(999, "playing")
 
     def test_change_status_invalid_status(self):
-        game = self.service.add_game("Testi", 1, 2026, [1, 2])
+        game = game = self.service.add_game("Testi", 1, 2026, "wishlist", [1, 2])
         with self.assertRaises(ValueError):
             self.service.change_status(game["id"], "invalid_status")
 
     def test_delete_game(self):
-        game = self.service.add_game("Testi", 1, 2026, [1, 2])
+        game =game = self.service.add_game("Testi", 1, 2026, "wishlist", [1, 2])
         self.service.delete_game(game["id"])
         self.assertIsNone(self.service.get_game_by_id(game["id"]))
 
@@ -148,13 +148,13 @@ class TestGameService(unittest.TestCase):
             self.service.delete_game(999)
 
     def test_get_genres_for_game(self):
-        game = self.service.add_game("Testi", 1, 2026, [1, 2])
+        game = self.service.add_game("Testi", 1, 2026, "wishlist", [1, 2])
         genres = self.service.get_genres_for_game(game["id"])
         self.assertEqual(genres, [1, 2])
 
     def test_get_games_by_genre(self):
-        self.service.add_game("Testi1", 1, 2026, [1])
-        self.service.add_game("Testi2", 2, 2025, [2])
+        self.service.add_game("Testi1", 1, 2026, "wishlist", [1])
+        self.service.add_game("Testi2", 2, 2025, "wishlist", [2])
         games = self.service.get_games_by_genre(1)
         self.assertEqual(len(games), 1)
         self.assertEqual(games[0]["name"], "Testi1")

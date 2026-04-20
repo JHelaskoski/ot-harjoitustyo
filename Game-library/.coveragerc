@@ -3,6 +3,7 @@ source = src
 
 omit =
     src/**/__init__.py
+    src/**/__pycache__/**
     src/tests/**
     src/ui/**
     src/index.py

@@ -12,10 +12,22 @@
 ## Viikko 4
 ---
 
-* Käyttäjä voi poistaa lisätyn pelin
-* Ohjelmisto tarjoaa valmiiksi genret, mistä käyttäjä voi valita
+* Käyttäjä voi poistaa lisätyn pelin (teknisesti toteutettu, täydennetään vielä UI:hin)
+* Ohjelmisto tarjoaa valmiiksi genret, mistä käyttäjä voi valita (teknisesti toteutettu, täydennetään vielä UI:hin)
 * Testattu pelin lisäämisen, haun ja päivittämisen osalta
-* Pelin hakeminen nimellä onnistuu
-* Käyttäjä voi muuttaa pelin statuksen
+* Pelin hakeminen nimellä onnistuu (teknisesti toteutettu, täydennetään vielä UI:hin)
+* Käyttäjä voi muuttaa pelin statuksen (teknisesti toteutettu, täydennetään vielä UI:hin)
 
+## Viikko 5
+---
+
+* Lisätty tietokannan alustus tiedosto
+* Käytettävät toiminnot lisätty README:en
+* Käyttäjä voi valita pelin genren valmiista listasta
+* Pelin voi poistaa kirjaston näkymissä
+* Poisto varmistetaan
+* Pelin statuksen päivitys lisätty, pelin voi siirtää toiveesta, pelattavaan tai pelattuihin. Sekä pelattavasta pelattuihin
+* Pelin lisäys UI:n osalta täydennetty
+* Käyttäjä voi arvioida pelin, kun peli on pelattu, eri aiheiden mukaan
+* Pelin hakeminen nimellä ui, päivitetty ja lisätty haku genren ja konsolin mukaan myös
 

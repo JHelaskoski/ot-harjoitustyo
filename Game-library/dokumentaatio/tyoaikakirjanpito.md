@@ -20,5 +20,11 @@
 |       | 1      |Korjatty python versiota, tkinterin toimivuuden johdosta|
 |7.4.   | 3      |Dokumentaatio, kaavioiden luominen, arkkitehtuuri, changelog, testaus|
 |13.4   | 4      |Pelien arvostelu mahdollisuus lisätty, päivitys game, entities, repo ja servicee tämän myötä|
-|       | 2      |Täydennetty pelatut pelit näykymää|
-|YHT:   | 44     |
+|       | 3      |Täydennetty pelatut pelit näykymää|
+|19.4.  | 4      |Tekniset toiminnot ui:hin, täydennetty readme|
+|       | 3      |Pelin lisäys ui:ssa, ui täydentämistä jatkettu|
+|       | 2      |Korjauksia kokonaisuuteen, konsolien lisääminen ui:ssa|
+|       | 2      |Genren valitseminen, pelin poisto ja päivitys|
+|20.4.  | 1      |Statuksen vaihtaminen
+|       | 2      |Testit, dokumentaation päivitys|
+|YHT:   | 51     |
