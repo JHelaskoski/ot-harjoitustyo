@@ -1,4 +1,5 @@
 from repositories.genre_repository import GenreRepository
+from database_connection import get_database_connection
 
 class GenreService:
     def __init__(self, genre_repository: GenreRepository):
@@ -7,8 +8,14 @@ class GenreService:
     def fetch_all_genres(self):
         return self._genre_repository.get_all_genres()
 
+    def get_all_genres(self):
+        return self._genre_repository.get_all_genres()
+
     def get_genre_by_name(self, name):
         return self._genre_repository.get_genre_by_name(name)
 
     def get_genre_by_id(self, genre_id):
         return self._genre_repository.get_genre_by_id(genre_id)
+
+_default_genre_repository = GenreRepository(get_database_connection())
+genre_service = GenreService(_default_genre_repository)

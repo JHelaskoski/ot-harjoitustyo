@@ -2,6 +2,7 @@ from tkinter import Frame, Label, Entry, Button, OptionMenu, StringVar, messageb
 from services.game_service import game_service
 from services.console_service import console_service
 from services.console_model_service import console_model_service
+from services.genre_service import genre_service
 
 class AddGameView(Frame):
     def __init__(self, root, open_main_menu, open_rate_game):
@@ -15,6 +16,22 @@ class AddGameView(Frame):
         Label(self, text="Name:").pack()
         self.name_entry = Entry(self)
         self.name_entry.pack()
+
+        # GENRE
+        Label(self, text="Genre:").pack()
+
+        self.genre_var = StringVar(self)
+        self.genre_var.set("Select genre")
+
+        genres = genre_service.get_all_genres()
+        self.genre_map = {genre["name"]: genre["id"] for genre in genres}
+
+        OptionMenu(
+            self,
+            self.genre_var,
+            "Select genre",
+            *self.genre_map.keys()
+        ).pack()
 
         # konsoli/konsolimalli yhtee otsikkoo
         Label(self, text="Console:").pack()
@@ -86,6 +103,8 @@ class AddGameView(Frame):
     def add_game(self):
         try:
             name = self.name_entry.get()
+            genre_name = self.genre_var.get()
+            genre_id = self.genre_map[genre_name]
             model_name = self.model_var.get()
             console_model_id = self.model_map[model_name]
 
@@ -99,7 +118,7 @@ class AddGameView(Frame):
                 console_model_id,
                 year,
                 status,
-                []
+                [genre_id]
             )
 
             #jos pelattu, peli arvostellaan

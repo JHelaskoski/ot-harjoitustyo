@@ -56,6 +56,7 @@ class GameRepository:
 
     def delete_game(self, game_id):
         cursor = self._connection.cursor()
+        cursor.execute("DELETE FROM game_genres WHERE game_id = ?", (game_id,))
         cursor.execute("delete from games where id = ?", (game_id,))
         self._connection.commit()
 
@@ -68,10 +69,10 @@ class GameRepository:
     def get_games_by_genre(self, genre_id):
         cursor = self._connection.cursor()
         cursor.execute("""
-            SELECT g.*
-            FROM games g
-            JOIN game_genres gg ON g.id = gg.game_id
-            WHERE gg.genre_id = ?
+            SELECT games.*
+            FROM games
+            JOIN game_genres ON games.id = game_genres.game_id
+            WHERE game_genres.genre_id = ?
         """, (genre_id,))
         rows = cursor.fetchall()
         return [self._row_to_game(row) for row in rows]
