@@ -1,9 +1,15 @@
 # Ohjelmistotekniikka, harjoitustyö - GameLibrary
 ---
-Sovellus tarjoaa käyttäjille mahdollisuuden lisätä uusia pelejä omaan pelikirjastoonsa sekä tallentaa ne tietokantaan.
+Sovellus tarjoaa käyttäjille mahdollisuuden hallita omaa pelikirjastoaan.
+Käyttäjä voi lisätä pelejä, selata niitä eri statuksen mukaan (toivelista, pelaan tällä hetkellä, pelatut), hakea pelejä, arvostella pelatut pelit sekä poistaa pelejä tai vaihtaa pelin statusta.
+
+## Huomio Python-versiosta
+---
+Sovelluksen toiminta on testattu Python-versiolla 3.12.
 
 ## Dokumentaatio
 ---
+* [Käyttöohje](Game-library/dokumentaatio/kayttoohje.md)
 * [Arkkitehtuuri](Game-library/dokumentaatio/arkkitehtuuri.md)
 * [Changelog](Game-library/dokumentaatio/changelog.md)
 * [Testaus](Game-library/dokumentaatio/testaus.md)
@@ -20,7 +26,7 @@ Sovellus tarjoaa käyttäjille mahdollisuuden lisätä uusia pelejä omaan pelik
 ```poetry run invoke build```
 
 3. Käynnistä sovellus:
-```poetryrun invoke start```
+```poetry run invoke start```
 
 ## Komentorivitoiminnot
 ---
@@ -38,7 +44,7 @@ Testit suoritetaan komennolla:
 ### Testikattavuus
 
 Testikattavuusraportin voi generoida komennolla:
-```poetry run invokecoverage-report```
+```poetry run invoke coverage-report```
 
 Raportti generoituu htmlcov‑hakemistoon.
 
