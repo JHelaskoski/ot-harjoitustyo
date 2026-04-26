@@ -25,15 +25,15 @@ class GameRepository:
 
     def _row_to_game(self, row):
         return Game(
-            row["name"],
-            row["console_model_id"],
-            row["release_year"],
-            row["status"],
-            row["id"],
-            row["story_rating"],
-            row["graphics_rating"],
-            row["gameplay_rating"],
-            row["overall_rating"]
+            name=row["name"],
+            console_model_id=row["console_model_id"],
+            release_year=row["release_year"],
+            status=row["status"],
+            game_id=row["id"],
+            story_rating=row["story_rating"],
+            graphics_rating=row["graphics_rating"],
+            gameplay_rating=row["gameplay_rating"],
+            overall_rating=row["overall_rating"]
         )
 
     def get_all_games(self):

@@ -39,13 +39,13 @@ class PlayedView(Frame):
                 Button(
                     row,
                     text="Rate",
-                    command=lambda game_id=game.id: self.open_rate_game(game_id)
+                    command=lambda game_id=game.game_id: self.open_rate_game(game_id)
                 ).pack()
 
             Button(
                 row,
                 text="Delete",
-                command=lambda game_id=game.id: self.delete_game(game_id)
+                command=lambda game_id=game.game_id: self.delete_game(game_id)
             ).pack(pady=5)
 
     def delete_game(self, game_id):

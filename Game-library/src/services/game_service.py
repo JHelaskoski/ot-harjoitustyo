@@ -6,7 +6,10 @@ from database_connection import get_database_connection
 class GameService:
     Valid_statuses = ["wishlist", "playing", "completed"]
 
-    def __init__(self, game_repo: GameRepository, console_model_repo: ConsoleModelRepository,genre_repo: GenreRepository):
+    def __init__(self, game_repo: GameRepository,
+                console_model_repo: ConsoleModelRepository,
+                genre_repo: GenreRepository):
+
         self._game_repo = game_repo
         self._console_model_repo = console_model_repo
         self._genre_repo = genre_repo
@@ -35,11 +38,11 @@ class GameService:
             raise ValueError("Invalid status.")
 
         return self._game_repo.add_game(
-            name,
-            console_model_id,
-            release_year,
-            status,
-            genre_ids
+            name=name,
+            console_model_id=console_model_id,
+            release_year=release_year,
+            status=status,
+            genre_ids=genre_ids
         )
 
     def get_all_games(self):
@@ -88,8 +91,12 @@ class GameService:
                 raise ValueError("Ratings must be integers between 0 and 10.")
 
         return self._game_repo.update_ratings(
-            game_id, story, graphics, gameplay, overall
-    )
+            game_id=game_id,
+            story=story,
+            graphics=graphics,
+            gameplay=gameplay,
+            overall=overall
+        )
 
     def search_games(self, query=None, genre_id=None, console_id=None):
         # haku nimen perusteella

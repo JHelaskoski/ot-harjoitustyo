@@ -31,13 +31,13 @@ class PlayingView(Frame):
             Button(
                 row,
                 text="Delete",
-                command=lambda game_id=game.id: self.delete_game(game_id)
+                command=lambda game_id=game.game_id: self.delete_game(game_id)
             ).pack(side="left", padx=10)
 
             Button(
                 row,
                 text="Move to Completed",
-                command=lambda game_id=game.id: self.change_status(game_id, "completed")
+                command=lambda game_id=game.game_id: self.change_status(game_id, "completed")
             ).pack(side="left", padx=10)
 
     def delete_game(self, game_id):

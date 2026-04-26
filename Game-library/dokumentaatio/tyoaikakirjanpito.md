@@ -30,4 +30,5 @@
 |       | 2      |README, dokumentaatioiden päivittämistä, käyttöohje|
 |26.4.  | 2      |Arvostelluista peleistä näytetään 3-parhaiten arvosteltua toiminto|
 |       | 2      |Sekvenssikaavio|
-|YHT:   | 55     |
+|       | 1      |Pylin virheiden korjauksia|
+|YHT:   | 56     |

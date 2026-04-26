@@ -1,9 +1,9 @@
 class Game:
     def __init__(self, name, console_model_id, release_year, status,
-                 id=None, story_rating=None, graphics_rating=None,
+                 game_id=None, story_rating=None, graphics_rating=None,
                  gameplay_rating=None, overall_rating=None):
 
-        self.id = id
+        self.game_id = game_id
         self.name = name
         self.console_model_id = console_model_id
         self.release_year = release_year
