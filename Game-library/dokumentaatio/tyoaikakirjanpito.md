@@ -28,4 +28,6 @@
 |20.4.  | 1      |Statuksen vaihtaminen|
 |       | 2      |Testit, tietokannanalustus|
 |       | 2      |README, dokumentaatioiden päivittämistä, käyttöohje|
-|YHT:   | 53     |
+|26.4.  | 2      |Arvostelluista peleistä näytetään 3-parhaiten arvosteltua toiminto|
+|       | 2      |Sekvenssikaavio|
+|YHT:   | 55     |

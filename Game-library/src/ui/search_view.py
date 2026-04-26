@@ -41,6 +41,8 @@ class SearchView(Frame):
         self.results_frame = Frame(self)
         self.results_frame.pack(pady=10)
 
+        self.show_top_rated_games()
+
         Button(self, text="Back", command=self.open_main_menu).pack(pady=10)
 
     def search_games(self):
@@ -67,3 +69,24 @@ class SearchView(Frame):
 
         for game in results:
             Label(self.results_frame, text=f"{game['name']} ({game['status']})").pack(anchor="w")
+
+    def show_top_rated_games(self):
+        '''Pelaaja näkee 3 parhaiten arvostelemaansa peliä suoraan'''
+        # Tyhjennetään mahdolliset vanhat tulokset
+        for widget in self.results_frame.winfo_children():
+            widget.destroy()
+
+        top_games = game_service.get_top_rated_games()
+
+        Label(self.results_frame, text="Top 3:", font=("Arial", 14)).pack()
+        Label(self.results_frame, text="-------------------------").pack()
+
+        if not top_games:
+            Label(self.results_frame, text="No rated games yet").pack()
+            return
+
+        for game in top_games:
+            Label(
+                self.results_frame,
+                text=f"{game.name} – Score: {game.total_score}"
+            ).pack(anchor="w")

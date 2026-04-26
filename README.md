@@ -6,6 +6,7 @@ Käyttäjä voi lisätä pelejä, selata niitä eri statuksen mukaan (toivelista
 ## Huomio Python-versiosta
 ---
 Sovelluksen toiminta on testattu Python-versiolla 3.12.
+Uudemmilla versioilla voi aiheuttaa virheen. Tarv. lataa sopiva Python-versio.
 
 ## Dokumentaatio
 ---

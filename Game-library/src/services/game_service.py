@@ -106,6 +106,9 @@ class GameService:
 
         return []
 
+    def get_top_rated_games(self):
+        return self._game_repo.get_top_rated_games()
+
 _connection = get_database_connection()
 _game_repo = GameRepository(_connection)
 _console_model_repo = ConsoleModelRepository(_connection)

@@ -34,3 +34,45 @@ Sovelluksen toiminnallisuudesta vastaa services‑pakkaus, joka sisältää luok
 
 ## Tietojen pysyväistallennus
 ---
+
+Sovelluksen pysyväistallennuksesta vastaa repositories‑pakkaus, joka sisältää neljä luokkaa:
+- GameRepository: tallentaa ja hakee pelit sekä niiden arvosanat
+- ConsoleRepository: tallentaa ja hakee konsolit
+- ConsoleModelRepository: tallentaa ja hakee konsolimallit
+- GenreRepository: tallentaa ja hakee genret sekä pelien genre‑suhteet
+Kaikki repositoriot käyttävät SQLite‑tietokantaa, ja ne tarjoavat sovelluslogiikalle yhtenäisen rajapinnan datan käsittelyyn.
+
+Tietokannan taulut luodaan initialize_database.py‑tiedostossa, jossa määritellään rakenteet peleille, konsoleille, konsolimalleille ja genreille.
+
+## Päätoiminnallisuudet
+---
+
+Kuvataan sekvenssikaaviona joiltain osin sovelluksen toimintalogiikkaa.
+
+### Pelin lisääminen
+
+Kun käyttäjä on avannut sovelluksen hänelle avautuu pääikkuna näkymä. Jos hän haluaa lisätä pelin "Add game" kohdasta hänelle avautuu näkymä lomake missä on kentät: nimi, genre, console, console model, julkaisuvuosi (valinnainen) ja status. Kun käyttäjä täyttää kentät ja lähettää lomakkeen, käyttöliittymä välittää annetut tiedot sovelluslogiikalle, joka käsittelee ne ja kutsuu taustalla toimivaa GameRepository‑luokkaa. Repository tallentaa pelin tiedot tietokantaan ja lisää samalla pelin ja valittujen genrejen väliset suhteet. Tallennuksen jälkeen sovellus palaa takaisin käyttöliittymään ja päivittää pelilistan, jolloin käyttäjä näkee juuri lisäämänsä pelin omassa kirjastossaan.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI
+    participant GameService
+    participant GameRepository
+    participant Game
+
+    User->>UI: click "Add game"
+    UI->>UI: open AddGameView
+    UI->>GameService: add_game("Testi peli", Co-op, ps3, , "wishlist")
+    GameService->>Game: Game(name, console_model_id, release_year, status, [genre_id])
+    GameService->>GameRepository: add_game(game)
+    GameRepository-->>GameService: game
+    GameService-->>UI: game
+    UI->>UI: open_main_menu()
+```
+
+Kun käyttäjä klikkaa päävalikossa “Add game”, käyttöliittymä avaa AddGameView‑näkymän. Näkymässä käyttäjä syöttää pelin tiedot. Genre‑ ja konsolivalinnat haetaan valmiiksi tietokannasta palvelukerroksen kautta. Kun käyttäjä painaa “Add Game”, käyttöliittymä kutsuu sovelluslogiikan metodia
+game_service.add_game(name, console_model_id, release_year, status, genre_id).
+game_service muodostaa Game‑olion ja välittää sen GameRepositorylle tallennettavaksi.
+Tallennuksen jälkeen game_service palauttaa pelin tunnisteen käyttöliittymälle.
+Jos käyttäjä valitsee statukseksi wishlist tai playing, käyttöliittymä kutsuu omaa metodiaan open_main_menu(), jolloin käyttäjä palaa takaisin päävalikkoon.

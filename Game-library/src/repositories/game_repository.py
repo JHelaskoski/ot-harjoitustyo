@@ -112,3 +112,30 @@ class GameRepository:
         """, (console_id,))
         rows = cursor.fetchall()
         return [dict(row) for row in rows]
+
+    def get_top_rated_games(self, limit=3):
+        '''lasketaan arvostelu pisteet
+        ja näytetään käyttäjälle 3-parasta arvostelemaa peliä'''
+
+        cursor = self._connection.cursor()
+        cursor.execute("""
+            SELECT
+                *,
+                (story_rating + graphics_rating + gameplay_rating + overall_rating) AS total_score
+            FROM games
+            WHERE story_rating IS NOT NULL
+            AND graphics_rating IS NOT NULL
+            AND gameplay_rating IS NOT NULL
+            AND overall_rating IS NOT NULL
+            ORDER BY total_score DESC
+            LIMIT ?
+        """, (limit,))
+        rows = cursor.fetchall()
+
+        games = []
+        for row in rows:
+            game = self._row_to_game(row)
+            game.total_score = row["total_score"]
+            games.append(game)
+
+        return games

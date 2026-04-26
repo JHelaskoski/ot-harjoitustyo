@@ -27,7 +27,7 @@ Sovellus koostuu viidestä eri näkymästä: etusivu, toivelista, pelatut pelit,
 
 * Käyttäjä voi hakea kirjastoonsa lisäämiä pelejä nimen perusteella. [x]
 
-* Hakusivulla näytetään myös käyttäjän antamien arvioiden perusteella top 3 ‑peliä. []
+* Hakusivulla näytetään myös käyttäjän antamien arvioiden perusteella top 3 ‑peliä. [x]
 
 * Sovellus tarjoaa valmiin listan peligenreistä sekä alustoista (konsolit/PC), joista käyttäjä voi valita peliä lisätessään. [x]
 
