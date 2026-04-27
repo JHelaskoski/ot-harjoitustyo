@@ -1,5 +1,17 @@
 class ConsoleModelRepository:
+    """Hakee ja tallentaa konsolimallit tietokantaan.
+
+    Tätä luokkaa käytetään, kun pelin lisäyksessä
+    tarvitaan lista tietyn konsolin malleista.
+    """
+
     def __init__(self, connection):
+        """Luokan konstruktori, joka tallentaa tietokantayhteyden.
+
+        Args:
+            connection: SQLite-yhteys, jota käytetään kyselyihin.
+        """
+
         self._connection = connection
 
     def add_console_model(self, console_id, name):
@@ -11,7 +23,15 @@ class ConsoleModelRepository:
         self._connection.commit()
 
     def get_console_models_by_console_id(self, console_id):
-        # Hakee kaikki konsolimallit tietyn konsolin id:n perusteella.
+        """Hakee kaikki konsolimallit tietyn konsolin perusteella.
+
+        Args:
+            console_id: Konsolin tunniste.
+
+        Returns:
+            Lista tietokantarivejä, joissa konsolimallien tiedot.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute(
             "select * from console_models where console_id = ?",
@@ -20,7 +40,12 @@ class ConsoleModelRepository:
         return cursor.fetchall()
 
     def get_all_console_models(self):
-        # Hakee kaikki konsolimallit.
+        """Hakee kaikki konsolimallit.
+
+        Returns:
+            Lista tietokantarivejä kaikista konsolimalleista.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute("select * from console_models")
         rows = cursor.fetchall()

@@ -1,5 +1,14 @@
 class ConsoleRepository:
+    """Hakee ja tallentaa konsoliperheen tietokantaan.
+    """
+
     def __init__(self, connection):
+        """Luokan konstruktori, joka tallentaa tietokantayhteyden.
+
+        Args:
+            connection: SQLite-yhteys, jota käytetään kyselyihin.
+        """
+
         self._connection = connection
 
     def add_console(self, name):
@@ -12,6 +21,15 @@ class ConsoleRepository:
         self._connection.commit()
 
     def get_all_consoles(self):
+        """Palauttaa kaikki konsoliperheet.
+
+        Tätä kutsuu käyttöliittymä, kun pelin lisäysnäkymässä näytetään
+        käyttäjälle valittavissa olevat konsolit.
+
+        Returns:
+            Lista tietokantarivejä, joissa konsolien id ja nimi.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute("select id, name from consoles")
         return cursor.fetchall()

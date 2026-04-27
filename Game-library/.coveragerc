@@ -10,3 +10,5 @@ omit =
     src/database_connection.py
     src/initialize_database.py
     src/seed_*.py
+    src/build.py
+    src/config.py

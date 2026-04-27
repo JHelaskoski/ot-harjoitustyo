@@ -2,13 +2,29 @@ from repositories.genre_repository import GenreRepository
 from database_connection import get_database_connection
 
 class GenreService:
+    """Tarjoaa sovelluslogiikan genrejen hakemiseen.
+    """
+
     def __init__(self, genre_repository: GenreRepository):
+        """Luokan konstruktori, joka tallentaa käytettävän repositorion.
+
+        Args:
+            genre_repository: Olio, joka hoitaa genreihin liittyvät
+                tietokantakyselyt.
+        """
+
         self._genre_repository = genre_repository
 
-    def fetch_all_genres(self):
-        return self._genre_repository.get_all_genres()
-
     def get_all_genres(self):
+        """Hakee kaikki genret.
+
+        Tätä kutsuu käyttöliittymä, kun pelin lisäyksessä näytetään
+        käyttäjälle valittavissa olevat genret.
+
+        Returns:
+            Lista tietokantarivejä kaikista genreistä.
+        """
+
         return self._genre_repository.get_all_genres()
 
     def get_genre_by_name(self, name):

@@ -4,17 +4,47 @@ from repositories.genre_repository import GenreRepository
 from database_connection import get_database_connection
 
 class GameService:
+    """Tarjoaa sovelluslogiikan pelien lisäämiseen, hakemiseen ja poistamiseen.
+
+    Tätä luokkaa käyttää käyttöliittymä. Service varmistaa käyttäjän syötteet
+    ja välittää kutsut GameRepositorylle, ConsoleModelRepositorylle ja
+    GenreRepositorylle.
+    """
+
     Valid_statuses = ["wishlist", "playing", "completed"]
 
     def __init__(self, game_repo: GameRepository,
                 console_model_repo: ConsoleModelRepository,
                 genre_repo: GenreRepository):
+        """Luokan konstruktori, joka tallentaa käytettävät repositoriot.
+
+        Args:
+            game_repo: Olio, joka hoitaa pelien tietokantakyselyt.
+            console_model_repo: Olio, joka hakee konsolimallit.
+            genre_repo: Olio, joka hakee genret.
+        """
 
         self._game_repo = game_repo
         self._console_model_repo = console_model_repo
         self._genre_repo = genre_repo
 
     def add_game(self, name, console_model_id, release_year, status, genre_ids):
+        """Lisää uuden pelin.
+
+        Args:
+            name: Pelin nimi.
+            console_model_id: Valitun konsolimallin ID.
+            release_year: Pelin julkaisuvuosi.
+            status: Pelin tila (wishlist, playing, completed).
+            genre_ids: Lista valittujen genrejen ID-arvoja.
+
+        Returns:
+            Uuden pelin tietokanta-ID.
+
+        Raises:
+            ValueError: Jos jokin syöte on virheellinen.
+        """
+
         if not name:
             raise ValueError("Name cannot be empty.")
 
@@ -46,6 +76,14 @@ class GameService:
         )
 
     def get_all_games(self):
+        """Hakee kaikki pelit.
+
+        Tätä kutsuu käyttöliittymän kirjastonäkymät.
+
+        Returns:
+            Lista Game-olioita.
+        """
+
         return self._game_repo.get_all_games()
 
     def get_game_by_id(self, game_id: int):
@@ -67,6 +105,15 @@ class GameService:
         return self._game_repo.update_status(game_id, new_status)
 
     def delete_game(self, game_id: int):
+        """Poistaa pelin.
+
+        Args:
+            game_id: Poistettavan pelin tunniste.
+
+        Raises:
+            ValueError: Jos peliä ei löydy.
+        """
+
         game = self._game_repo.get_game_by_id(game_id)
         if not game:
             raise ValueError("Game not found.")
@@ -82,6 +129,21 @@ class GameService:
         return self._game_repo.get_games_by_genre(genre_id)
 
     def add_ratings(self, game_id: int, story: int, graphics: int, gameplay: int, overall: int):
+        """Lisää pelin arvostelut.
+
+        Tätä kutsuu käyttöliittymä, kun käyttäjä tallentaa pelin arviot.
+
+        Args:
+            game_id: Pelin tunniste.
+            story: Tarinan arvosana (0–10).
+            graphics: Grafiikan arvosana (0–10).
+            gameplay: Pelattavuuden arvosana (0–10).
+            overall: Kokonaisarvosana (0–10).
+
+        Raises:
+            ValueError: Jos peliä ei löydy tai arvosanat ovat virheellisiä.
+        """
+
         game = self._game_repo.get_game_by_id(game_id)
         if not game:
             raise ValueError("Game not found.")
@@ -99,6 +161,17 @@ class GameService:
         )
 
     def search_games(self, query=None, genre_id=None, console_id=None):
+        """Hakee pelejä nimen, genren tai konsolin perusteella.
+
+        Args:
+            query: Hakusana.
+            genre_id: Genren tunniste.
+            console_id: Konsolin tunniste.
+
+        Returns:
+            Lista pelejä sanakirjoina.
+        """
+
         # haku nimen perusteella
         if query:
             return self._game_repo.search_by_name(query)

@@ -2,7 +2,22 @@ from tkinter import Frame, Label, Button, messagebox
 from services.game_service import game_service
 
 class PlayedView(Frame):
+    """Näkymä pelatuille peleille.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+        open_main_menu: Funktio, joka avaa päävalikon.
+        open_rate_game: Funktio, joka avaa pelin arvostelunäkymän.
+    """
     def __init__(self, root, open_main_menu, open_rate_game):
+        """Alustaa PlayedView-näkymän.
+
+        Args:
+        root: Tkinter-juuri-ikkuna
+        open_main_menu: Funktio, joka avaa päävalikon.
+        open_rate_game: Funktio, joka avaa pelin arvostelunäkymän.
+        """
+
         super().__init__(root)
         self.root = root
         self.open_main_menu = open_main_menu
@@ -18,6 +33,14 @@ class PlayedView(Frame):
         Button(self, text="Back", command=self.open_main_menu).pack(pady=10)
 
     def draw_game_list(self):
+        """Piirtää pelilistan.
+
+        Hakee pelit "completed" -tilalla ja näyttää ne listana.
+        Jokaiselle pelille näytetään nimi, julkaisuvuosi,
+        mahdolliset arviot ja "Rate" -nappi, jos peliä ei ole vielä arvosteltu.
+        Jokaiselle pelille on "Delete" -nappi, jolla peli voidaan poistaa.
+        """
+
         for widget in self.game_list_frame.winfo_children():
             widget.destroy()
 

@@ -4,7 +4,21 @@ from services.console_service import console_service
 from services.genre_service import genre_service
 
 class SearchView(Frame):
+    """Näkymä pelien hakua varten.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+        open_main_menu: Funktio, joka avaa päävalikon.
+    """
+
     def __init__(self, root, open_main_menu):
+        """Alustaa SearchView-näkymän.
+
+        Args:
+            root (_type_): _description_
+            open_main_menu (_type_): _description_
+        """
+
         super().__init__(root)
         self.root = root
         self.open_main_menu = open_main_menu

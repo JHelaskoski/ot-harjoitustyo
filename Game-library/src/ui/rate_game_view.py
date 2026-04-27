@@ -2,7 +2,23 @@ from tkinter import Frame, Label, Button, Entry
 from services.game_service import game_service
 
 class RateGameView(Frame):
+    """Näkymä pelin arvostelua varten.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+        game_id: Arvosteltavan pelin ID.
+        go_back: Funktio, joka avaa edellisen näkymän.
+    """
+
     def __init__(self, root, game_id, go_back):
+        """Alustaa RateGameView-näkymän.
+
+        Args:
+            root (_type_): _description_
+            game_id (_type_): _description_
+            go_back (_type_): _description_
+        """
+
         super().__init__(root)
         self.game_id = game_id
         self.go_back = go_back

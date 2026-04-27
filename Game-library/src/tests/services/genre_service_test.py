@@ -32,8 +32,8 @@ class TestGenreService(unittest.TestCase):
         self.repo = FakeGenreRepository()
         self.service = GenreService(self.repo)
 
-    def test_fetch_all_genres(self):
-        genres = self.service.fetch_all_genres()
+    def test_get_all_genres(self):
+        genres = self.service.get_all_genres()
         self.assertEqual(len(genres), 3)
 
     def test_get_genre_by_id(self):

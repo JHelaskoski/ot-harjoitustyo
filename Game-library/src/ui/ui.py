@@ -7,7 +7,19 @@ from ui.add_game_view import AddGameView
 from ui.rate_game_view import RateGameView
 
 class UI:
+    """Pää UI-luokka.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+    """
+
     def __init__(self, root):
+        """Alustaa UI-luokan.
+
+        Args:
+            root: Tkinter-juuri-ikkuna.
+        """
+
         self._root = root
         self._current_view = None
 
@@ -53,6 +65,13 @@ class UI:
         self._current_view.pack()
 
     def _show_search(self):
+        """Näkymä pelien hakua varten.
+
+        Args:
+            root: Tkinter-juuri-ikkuna.
+            open_main_menu: Funktio, joka avaa päävalikon.
+        """
+
         self._hide_current_view()
         self._current_view = SearchView(self._root, self._show_main_menu)
         self._current_view.pack()

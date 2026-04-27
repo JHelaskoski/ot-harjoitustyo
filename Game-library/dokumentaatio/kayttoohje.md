@@ -16,7 +16,7 @@
 Sovellus käynnistyy Tkinter‑ikkunaan.
 Päävalikossa näkyvät seuraavat toiminnot:
 
-[Tähän lisätään kuva mainmenusta]
+![Main menu](kuvat/mainmenu.png)
 
 ## Pelin lisääminen
 ---
@@ -31,6 +31,8 @@ Julkaisuvuosi (voi jättää tyhjäksi)
 Status: Wish to Play, Playing, Played
 Lopuksi paina Add Game.
 Peli tallentuu tietokantaan ja näkyy oikeassa kirjastossa.
+
+![Add game](kuvat/addgame.png)
 
 ## Pelin statuksen muuttaminen
 ---

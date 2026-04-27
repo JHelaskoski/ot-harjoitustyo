@@ -31,3 +31,9 @@
 * Käyttäjä voi arvioida pelin, kun peli on pelattu, eri aiheiden mukaan
 * Pelin hakeminen nimellä ui, päivitetty ja lisätty haku genren ja konsolin mukaan myös
 
+## Viikko 6
+---
+
+* Pelin arvostelun arvosanat lasketaan yhteen
+* Käyttäjä näkee top-3 parhaiten arvosteltua peliä haku sivustolla
+* Top-3 lista päivittyy, jos paremmin arvosteltuja pelejä lisätään

@@ -1,6 +1,16 @@
-from tkinter import Frame, Label, Button
+from tkinter import Frame, Button
 
 class MainMenuView(Frame):
+    """Päävalikon näkymä.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+        open_wish_to_play: Funktio, joka avaa "Wishes" -näkymän.
+        open_playing: Funktio, joka avaa "In Action" -näkymän.
+        open_played: Funktio, joka avaa "Game Over" -näkymän.
+        open_search: Funktio, joka avaa hakunäkymän.
+        open_add_game: Funktio, joka avaa uuden pelin lisäysnäkymän.
+    """
     def __init__(self, root,
                  open_wish_to_play,
                  open_playing,

@@ -1,10 +1,35 @@
 from entities.game import Game
 
 class GameRepository:
+    """Tallentaa ja hakee pelejä tietokannasta.
+
+    Tätä luokkaa käyttävät GameService ja käyttöliittymä, kun pelejä lisätään,
+    haetaan, suodatetaan tai poistetaan.
+    """
+
     def __init__(self, connection):
+        """Luokan konstruktori, joka tallentaa tietokantayhteyden.
+
+        Args:
+            connection: SQLite-yhteys, jota käytetään kyselyihin.
+        """
+
         self._connection = connection
 
     def add_game(self, name, console_model_id, release_year, status, genre_ids):
+        """Lisää uuden pelin ja sen tiedot tietokantaan
+
+        Args:
+            name: Pelin nimi.
+            console_model_id: Konsolimallin tunniste.
+            release_year: Pelin julkaisuvuosi.
+            status: Pelin tila (wishlist, playing, completed).
+            genre_ids: Lista valittujen genrejen ID-arvoja.
+
+        Returns:
+            Uuden pelin tietokanta-ID.
+        """
+
         cursor = self._connection.cursor()
 
         cursor.execute("""
@@ -24,6 +49,14 @@ class GameRepository:
         return game_id
 
     def _row_to_game(self, row):
+        """Muuntaa tietokantarivin Game-olioksi.
+
+        Tätä käytetään sisäisesti, kun pelejä haetaan listana tai yksittäisenä.
+
+        Args:
+            row: Tietokantarivi, jossa pelin tiedot.
+        """
+
         return Game(
             name=row["name"],
             console_model_id=row["console_model_id"],
@@ -37,12 +70,23 @@ class GameRepository:
         )
 
     def get_all_games(self):
+        """Palauttaa kaikki käyttäjän lisäämät pelit. Käytetään kirjastonäkymässä"""
+
         cursor = self._connection.cursor()
         cursor.execute("select * from games")
         rows = cursor.fetchall()
         return [self._row_to_game(row) for row in rows]
 
     def get_game_by_id(self, game_id):
+        """Hakee yhden pelin ID:n perusteella. Käytetään palvelukerroksessa pelin tarkasteluun.
+
+        Args:
+            game_id: Haettavan pelin tunniste.
+
+        Returns:
+            Game-olio tai None, jos peliä ei löydy.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute("select * from games where id = ?", (game_id,))
         row = cursor.fetchone()
@@ -67,6 +111,14 @@ class GameRepository:
         return [row["genre_id"] for row in rows]
 
     def get_games_by_genre(self, genre_id):
+        """Hakee kaikki pelit, joilla on tietty genre.
+
+        Tätä käyttää hakunäkymä, kun käyttäjä suodattaa pelejä genren perusteella.
+
+        Args:
+            genre_id: Genren tunniste.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute("""
             SELECT games.*

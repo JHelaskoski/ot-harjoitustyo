@@ -5,7 +5,28 @@ from services.console_model_service import console_model_service
 from services.genre_service import genre_service
 
 class AddGameView(Frame):
+    """Näkymä uuden pelin lisäämistä varten.
+
+    Tämä näkymä tarjoaa käyttöliittymän, jossa käyttäjä voi syöttää pelin
+    nimen, genren, konsolin, konsolimallin, julkaisuvuoden ja statuksen.
+    Onnistuneen tallennuksen jälkeen käyttäjä ohjataan joko päävalikkoon
+    tai arvostelunäkymään, jos peli merkitään pelatuksi.
+
+    Args:
+        root: Tkinter-juuri-ikkuna tai vanhempi Frame.
+        open_main_menu: Funktio, joka avaa päävalikon.
+        open_rate_game: Funktio, joka avaa pelin arvostelunäkymän.
+    """
+
     def __init__(self, root, open_main_menu, open_rate_game):
+        """_summary_
+
+        Args:
+            root (_type_): _description_
+            open_main_menu (_type_): _description_
+            open_rate_game (_type_): _description_
+        """
+
         super().__init__(root)
         self.open_main_menu = open_main_menu
         self.open_rate_game = open_rate_game
@@ -33,7 +54,6 @@ class AddGameView(Frame):
             *self.genre_map.keys()
         ).pack()
 
-        # konsoli/konsolimalli yhtee otsikkoo
         Label(self, text="Console:").pack()
 
         console_frame = Frame(self)
@@ -101,6 +121,14 @@ class AddGameView(Frame):
             )
 
     def add_game(self):
+        """Näkymä uuden pelin lisäämistä varten.
+
+        Args:
+            root: Tkinter-juuri-ikkuna tai vanhempi Frame.
+            open_main_menu: Funktio, joka avaa päävalikon.
+            open_rate_game: Funktio, joka avaa pelin arvostelunäkymän.
+        """
+
         try:
             name = self.name_entry.get()
             genre_name = self.genre_var.get()

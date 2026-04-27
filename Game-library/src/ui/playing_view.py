@@ -2,7 +2,20 @@ from tkinter import Frame, Label, Button, messagebox
 from services.game_service import game_service
 
 class PlayingView(Frame):
+    """Näkymä parhaillaan pelattaville peleille.
+
+    Args:
+        root: Tkinter-juuri-ikkuna.
+        open_main_menu: Funktio, joka avaa päävalikon.
+    """
     def __init__(self, root, open_main_menu):
+        """_summary_
+
+        Args:
+            root (_type_): _description_
+            open_main_menu (_type_): _description_
+        """
+
         super().__init__(root)
         self.root = root
         self.open_main_menu = open_main_menu
@@ -41,6 +54,11 @@ class PlayingView(Frame):
             ).pack(side="left", padx=10)
 
     def delete_game(self, game_id):
+        """Poistaa pelin.
+        Args:
+            game_id: Poistettavan pelin ID.
+        """
+
         confirm = messagebox.askyesno(
             "Delete Game",
             "Are you sure you want to delete this game?"
