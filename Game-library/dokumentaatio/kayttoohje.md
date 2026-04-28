@@ -1,7 +1,11 @@
 # Käyttöohje - GameLibrary
 ---
 1. Lataa projektin lähdekoodi GitHubista
-2. Siirry projektin juurikansioon.
+2. Varsinainen sovellus sijaitsee Game-library‑hakemistossa.
+   Ennen kuin suoritat mitään Poetry‑komentoja, siirry oikeaan hakemistoon:
+   cd Game-library
+
+Kaikki seuraavat komennot suoritetaan Game-library‑kansiossa.
 3. Asenna riippuvuudet komennolla:
 ```poetry install```
 
@@ -11,6 +15,7 @@
 - Käynnistä sovellus:
 ```poetry run invoke start```
 
+Huom. sovellus testattu python 3.12 -versiolla, tätä uudemmilla versioilla aiheuttaa virheen. Tarv. asenna sopiva python versio.
 ## Sovelluksen käynnistäminen
 ---
 Sovellus käynnistyy Tkinter‑ikkunaan.
