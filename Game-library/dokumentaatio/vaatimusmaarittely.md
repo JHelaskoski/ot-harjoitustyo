@@ -33,7 +33,9 @@ Sovellus koostuu viidestä eri näkymästä: etusivu, toivelista, pelatut pelit,
 
 * Pelejä voi hakea ja suodattaa myös genren ja konsolin perusteella. [x]
 
-* Top‑3‑lista päivittyy automaattisesti aina, kun käyttäjä muuttaa jonkin pelin arvosanaa. []
+* Top‑3‑lista päivittyy automaattisesti aina, kun käyttäjä muuttaa jonkin pelin arvosanaa. [x]
+
+* Käyttäjä voi muokata antamaansa arvostelua. [x]
 
 ## Jatkokehitysideoita
 ---
