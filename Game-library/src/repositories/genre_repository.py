@@ -37,16 +37,6 @@ class GenreRepository:
         rows = cursor.fetchall()
         return rows
 
-    def get_genre_by_name(self, name):
-        # Hakee yhden genren nimen perusteella.
-
-        cursor = self._connection.cursor()
-        cursor.execute(
-            "select * from genres where name = ?",
-            (name,)
-        )
-        return cursor.fetchone()
-
     def get_genre_by_id(self, genre_id):
         """Hakee genren ID:n perusteella.
 

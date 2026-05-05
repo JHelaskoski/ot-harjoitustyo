@@ -37,9 +37,6 @@ class ConsoleModelService:
 
         return self._repo.get_console_model_by_id(model_id)
 
-    def get_model_by_name(self, name):
-        return self._repo.get_console_model_by_name(name)
-
     def get_models_by_console(self, console_id):
         """Hakee kaikki konsolimallit tietylle konsolille.
 

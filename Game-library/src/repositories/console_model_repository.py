@@ -59,12 +59,3 @@ class ConsoleModelRepository:
             (model_id,)
         )
         return cursor.fetchone()
-
-    def get_console_model_by_name(self, name):
-        # Hakee konsolimallin nimen perusteella.
-        cursor = self._connection.cursor()
-        cursor.execute(
-            "select * from console_models where name = ?",
-            (name,)
-        )
-        return cursor.fetchone()

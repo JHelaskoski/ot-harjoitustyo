@@ -30,8 +30,5 @@ class ConsoleService:
     def get_console_by_id(self, console_id):
         return self._repo.get_console_by_id(console_id)
 
-    def get_console_by_name(self, name):
-        return self._repo.get_console_by_name(name)
-
 console_repository = ConsoleRepository(get_database_connection())
 console_service = ConsoleService(console_repository)

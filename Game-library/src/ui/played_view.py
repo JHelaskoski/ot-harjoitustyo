@@ -1,5 +1,30 @@
 from tkinter import Frame, Label, Button, messagebox
 from services.game_service import game_service
+from tkinter import Canvas, Scrollbar
+
+class ScrollableFrame(Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        canvas = Canvas(self)
+        scrollbar = Scrollbar(self, orient="vertical", command=canvas.yview)
+        self.scrollable_frame = Frame(canvas)
+
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+
+        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        canvas.bind_all(
+            "<MouseWheel>",
+            lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")
+        )
 
 class PlayedView(Frame):
     """Näkymä pelatuille peleille.
@@ -25,8 +50,8 @@ class PlayedView(Frame):
 
         Label(self, text="Played Games", font=("Arial", 18)).pack(pady=10)
 
-        self.game_list_frame = Frame(self)
-        self.game_list_frame.pack()
+        self.game_list_frame = ScrollableFrame(self)
+        self.game_list_frame.pack(fill="both", expand=True)
 
         self.draw_game_list()
 
@@ -41,13 +66,13 @@ class PlayedView(Frame):
         Jokaiselle pelille on "Delete" -nappi, jolla peli voidaan poistaa.
         """
 
-        for widget in self.game_list_frame.winfo_children():
+        for widget in self.game_list_frame.scrollable_frame.winfo_children():
             widget.destroy()
 
         games = game_service.get_game_by_status("completed")
 
         for game in games:
-            row = Frame(self.game_list_frame)
+            row = Frame(self.game_list_frame.scrollable_frame)
             row.pack(pady=5)
 
             Label(row, text=f"{game.name} ({game.release_year})").pack()

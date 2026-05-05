@@ -43,3 +43,4 @@
 
 * Lisätyn arvostelun voi muokata
 * Top-3 lista päivittyy mahdollisen muokkauksen suhteen
+* Pelattujen pelin sivuston skrollaus lisätty

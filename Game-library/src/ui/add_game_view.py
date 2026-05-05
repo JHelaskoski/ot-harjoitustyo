@@ -19,7 +19,8 @@ class AddGameView(Frame):
     """
 
     def __init__(self, root, open_main_menu, open_rate_game):
-        """_summary_
+        """
+        Alustaa AddGameView-näkymän.
 
         Args:
             root (_type_): _description_

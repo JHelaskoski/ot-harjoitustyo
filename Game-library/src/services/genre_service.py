@@ -27,9 +27,6 @@ class GenreService:
 
         return self._genre_repository.get_all_genres()
 
-    def get_genre_by_name(self, name):
-        return self._genre_repository.get_genre_by_name(name)
-
     def get_genre_by_id(self, genre_id):
         return self._genre_repository.get_genre_by_id(genre_id)
 

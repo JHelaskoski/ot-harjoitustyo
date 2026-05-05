@@ -9,8 +9,7 @@ class PlayingView(Frame):
         open_main_menu: Funktio, joka avaa päävalikon.
     """
     def __init__(self, root, open_main_menu):
-        """_summary_
-
+        """
         Args:
             root (_type_): _description_
             open_main_menu (_type_): _description_
