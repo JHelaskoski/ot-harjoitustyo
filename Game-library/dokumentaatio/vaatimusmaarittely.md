@@ -21,7 +21,7 @@ Sovellus koostuu viidestä eri näkymästä: etusivu, toivelista, pelatut pelit,
  * Käyttäjä voi poistaa lisäämänsä pelin tarvittaessa. [x]
 
 ### Kirjaston ylläpitäminen
-* Käyttäjä voi siirtää pelin kategoriasta toiseen, esimerkiksi meneillään olevista peleistä pelattuihin. [x]
+* Käyttäjä voi siirtää pelin kategoriasta toiseen, esimerkiksi meneillään olevista peleistä pelattuihin. Pelatuista ei voi enää tehdä siirtoa [x]
 
 * Kun peli siirretään pelattuihin, käyttäjä voi antaa pelille arvostelun eri osa‑alueista mm. visuaalisuus, tarina, pelattavuus ja yleisarvosana. [x]
 

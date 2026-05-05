@@ -20,6 +20,9 @@ Kattavuus jakautuu seuraavasti:
 
 ![Testikattavuus](kuvat/testaus.png)
 
+Jotkin metodit jäivät yksikkötestauksen ulkopuolelle mm. muutamat repository-tason metodit:
+update_ratings, search_by_name, get_games_by_console ja get_top_rated_games.
+
 ## Järjestelmätestaus
 ---
 

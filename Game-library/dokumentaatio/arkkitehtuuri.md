@@ -71,8 +71,13 @@ sequenceDiagram
     UI->>UI: open_main_menu()
 ```
 
-Kun käyttäjä klikkaa päävalikossa “Add game”, käyttöliittymä avaa AddGameView‑näkymän. Näkymässä käyttäjä syöttää pelin tiedot. Genre‑ ja konsolivalinnat haetaan valmiiksi tietokannasta palvelukerroksen kautta. Kun käyttäjä painaa “Add Game”, käyttöliittymä kutsuu sovelluslogiikan metodia
+Kun käyttäjä klikkaa päävalikossa “Add game”, käyttöliittymä avaa AddGameView‑näkymän. Näkymässä käyttäjä syöttää pelin tiedot. Genre‑ ja konsolivalinnat haetaan valmiiksi tietokannasta palvelukerroksen kautta. Kun käyttäjä painaa “Add Game”, käyttöliittymä kutsuu sovelluslogiikan metodia:
 game_service.add_game(name, console_model_id, release_year, status, genre_id).
 game_service muodostaa Game‑olion ja välittää sen GameRepositorylle tallennettavaksi.
 Tallennuksen jälkeen game_service palauttaa pelin tunnisteen käyttöliittymälle.
 Jos käyttäjä valitsee statukseksi wishlist tai playing, käyttöliittymä kutsuu omaa metodiaan open_main_menu(), jolloin käyttäjä palaa takaisin päävalikkoon.
+
+## Arkkitehtuurin heikkoudet
+---
+
+Game-luokka sisältää paljon attribuutteja. Repositoryt käyttävät yhteistä tietokantayhteyttä.
