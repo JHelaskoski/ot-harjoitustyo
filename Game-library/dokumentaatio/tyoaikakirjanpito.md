@@ -32,4 +32,5 @@
 |       | 2      |Sekvenssikaavio|
 |       | 1      |Pylint virheiden korjauksia|
 |27.4.  | 2      |docstring + testikattavuutta|
-|YHT:   | 58     |
+|5.5.   | 3      |Dokumentaation täydennystä ja toiminnallisuutta|
+|YHT:   | 61     |

@@ -37,3 +37,9 @@
 * Pelin arvostelun arvosanat lasketaan yhteen
 * Käyttäjä näkee top-3 parhaiten arvosteltua peliä haku sivustolla
 * Top-3 lista päivittyy, jos paremmin arvosteltuja pelejä lisätään
+
+## Viikko 7
+---
+
+* Lisätyn arvostelun voi muokata
+* Top-3 lista päivittyy mahdollisen muokkauksen suhteen

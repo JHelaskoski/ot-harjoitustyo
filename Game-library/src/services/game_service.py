@@ -132,6 +132,7 @@ class GameService:
         """Lisää pelin arvostelut.
 
         Tätä kutsuu käyttöliittymä, kun käyttäjä tallentaa pelin arviot.
+        Voidaan myös käyttää arvostelun muokkaamiseen.
 
         Args:
             game_id: Pelin tunniste.

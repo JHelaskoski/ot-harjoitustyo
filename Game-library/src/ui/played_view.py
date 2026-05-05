@@ -57,6 +57,12 @@ class PlayedView(Frame):
                 Label(row, text=f"Graphics: {game.graphics_rating}").pack()
                 Label(row, text=f"Gameplay: {game.gameplay_rating}").pack()
                 Label(row, text=f"Overall: {game.overall_rating}").pack()
+
+                Button(
+                    row,
+                    text="Edit Rating",
+                    command=lambda game_id=game.game_id: self.open_rate_game(game_id)
+                ).pack()
             else:
                 Label(row, text="Not rated yet").pack()
                 Button(
